@@ -1,0 +1,9 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+input,
+label {
+  color: white;
+}
