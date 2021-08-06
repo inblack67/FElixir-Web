@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.7.1",
     "materialize-css": "^1.0.0",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.12.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/materialize-css": "^1.0.11",
