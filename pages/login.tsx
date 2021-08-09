@@ -6,6 +6,7 @@ import * as yup from 'yup';
 import Layout from '../components/Layout';
 import { requiredValidationMessage } from '../src/constants';
 import { ILogin } from '../src/interfaces';
+import { routes } from '../src/routes';
 
 const Login = () => {
   const validationSchema = useMemo(
@@ -29,8 +30,22 @@ const Login = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const handleLogin = (data: ILogin) => {
+  const handleLogin = async (data: ILogin) => {
     console.log('login form data => ', data);
+    try {
+      const res = await fetch(routes.login, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const resData = await res.json();
+      console.log('handle login data = ', resData);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
