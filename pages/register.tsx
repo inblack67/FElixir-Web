@@ -61,93 +61,88 @@ const Register = () => {
   };
 
   return (
-    <Layout>
-      <div className='container'>
-        <p className='flow-text center grey-text'>Register</p>
-        <div className='row'></div>
-        <form
-          className='col s12'
-          onSubmit={handleSubmit(handleRegister)}
-          autoComplete='off'
-        >
-          <div className='row'>
-            <div className='input-field col s6'>
-              <input
-                id='name'
-                type='text'
-                className='validate'
-                name='name'
-                {...register('name')}
-                placeholder='Enter your Name'
-                // required
-              />
-              {errors.name && (
-                <span className='helper-text red-text'>
-                  {errors.name.message}
-                </span>
-              )}
-            </div>
-            <div className='input-field col s6'>
-              <input
-                id='email'
-                // type='email'
-                type='text'
-                className='validate'
-                name='email'
-                {...register('email')}
-                placeholder='Enter your Email'
-                // required
-              />
-              {errors.email && (
-                <span className='helper-text red-text'>
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-            <div className='input-field col s6'>
-              <input
-                id='username'
-                type='text'
-                className='validate'
-                name='username'
-                {...register('username')}
-                placeholder='Enter your Username'
-                // required
-              />
-              {errors.username && (
-                <span className='helper-text red-text'>
-                  {errors.username.message}
-                </span>
-              )}
-            </div>
-            <div className='input-field col s6'>
-              <input
-                id='password'
-                type='password'
-                className='validate'
-                name='password'
-                {...register('password')}
-                placeholder='Enter your Password'
-                // required
-              />
-              {errors.password && (
-                <span className='helper-text red-text'>
-                  {errors.password.message}
-                </span>
-              )}
-            </div>
-            <div className='input-field col s6'>
-              <button
-                className='btn grey waves-effect waves-light'
-                type='submit'
-              >
-                Submit
-              </button>
-            </div>
+    <div className='container'>
+      <p className='flow-text center grey-text'>Register</p>
+      <div className='row'></div>
+      <form
+        className='col s12'
+        onSubmit={handleSubmit(handleRegister)}
+        autoComplete='off'
+      >
+        <div className='row'>
+          <div className='input-field col s6'>
+            <input
+              id='name'
+              type='text'
+              className='validate'
+              name='name'
+              {...register('name')}
+              placeholder='Enter your Name'
+              // required
+            />
+            {errors.name && (
+              <span className='helper-text red-text'>
+                {errors.name.message}
+              </span>
+            )}
           </div>
-        </form>
-      </div>
-    </Layout>
+          <div className='input-field col s6'>
+            <input
+              id='email'
+              // type='email'
+              type='text'
+              className='validate'
+              name='email'
+              {...register('email')}
+              placeholder='Enter your Email'
+              // required
+            />
+            {errors.email && (
+              <span className='helper-text red-text'>
+                {errors.email.message}
+              </span>
+            )}
+          </div>
+          <div className='input-field col s6'>
+            <input
+              id='username'
+              type='text'
+              className='validate'
+              name='username'
+              {...register('username')}
+              placeholder='Enter your Username'
+              // required
+            />
+            {errors.username && (
+              <span className='helper-text red-text'>
+                {errors.username.message}
+              </span>
+            )}
+          </div>
+          <div className='input-field col s6'>
+            <input
+              id='password'
+              type='password'
+              className='validate'
+              name='password'
+              {...register('password')}
+              placeholder='Enter your Password'
+              // required
+            />
+            {errors.password && (
+              <span className='helper-text red-text'>
+                {errors.password.message}
+              </span>
+            )}
+          </div>
+          <div className='input-field col s6'>
+            <button className='btn grey waves-effect waves-light' type='submit'>
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

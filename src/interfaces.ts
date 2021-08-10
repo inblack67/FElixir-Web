@@ -9,3 +9,15 @@ export interface IRegister {
   username: string;
   password: string;
 }
+
+export interface ICurrentUser {
+  email: string;
+  inserted_at: string;
+  username: string;
+  name: string;
+}
+
+export interface IGetMeResponse {
+  success: boolean;
+  data: ICurrentUser;
+}
