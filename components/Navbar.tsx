@@ -3,16 +3,13 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import { routes } from '../src/routes';
 import { fetcher } from '../src/fetcher';
+import { IGetMeResponse } from '../src/interfaces';
+import { NextPageContext } from 'next';
 
 const Navbar = () => {
-  const { data, error, isValidating } = useSWR([routes.getMe], fetcher);
+  const { data, error, isValidating } = useSWR<IGetMeResponse>([routes.getMe]);
 
-  console.log(
-    'data, error, isValidating = , ',
-    data,
-    error,
-    isValidating,
-  );
+  console.log('data, error, isValidating = , ', data, error, isValidating);
 
   return (
     <Fragment>

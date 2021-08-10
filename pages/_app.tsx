@@ -1,5 +1,6 @@
 import 'materialize-css/dist/css/materialize.min.css';
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
+import Layout from '../components/Layout';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
@@ -8,7 +9,13 @@ function MyApp({ Component, pageProps }) {
     M.AutoInit();
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <Fragment>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Fragment>
+  );
 }
 
 export default MyApp;

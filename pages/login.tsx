@@ -49,7 +49,6 @@ const Login = () => {
   };
 
   return (
-    <Layout>
       <div className='container'>
         <p className='flow-text center grey-text'>Login</p>
         <div className='row'></div>
@@ -114,7 +113,6 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </Layout>
   );
 };
 

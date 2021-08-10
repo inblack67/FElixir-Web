@@ -61,7 +61,6 @@ const Register = () => {
   };
 
   return (
-    <Layout>
       <div className='container'>
         <p className='flow-text center grey-text'>Register</p>
         <div className='row'></div>
@@ -147,7 +146,6 @@ const Register = () => {
           </div>
         </form>
       </div>
-    </Layout>
   );
 };
 
