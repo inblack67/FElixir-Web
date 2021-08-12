@@ -5,8 +5,9 @@ import * as yup from 'yup';
 
 import Layout from '../components/Layout';
 import { requiredValidationMessage } from '../src/constants';
-import { IRegister } from '../src/interfaces';
+import { IAcknowledgementResponse, IRegister } from '../src/interfaces';
 import { routes } from '../src/routes';
+import { toast, TypeOptions } from 'react-toastify';
 
 const Register = () => {
   const validationSchema = useMemo(
@@ -35,6 +36,11 @@ const Register = () => {
     [],
   );
 
+  const notify = (text: string, type: TypeOptions) =>
+    toast(text, {
+      type,
+    });
+
   const {
     handleSubmit,
     register,
@@ -53,10 +59,18 @@ const Register = () => {
         },
         body: JSON.stringify(data),
       });
-      const resData = await res.json();
+      const resData: IAcknowledgementResponse = await res.json();
       console.log('handleRegister data = ', resData);
+
+      if (resData.success) {
+        notify(resData.message, 'success');
+      } else if (resData.errors) {
+        notify(resData.errors.toString(), 'error');
+      }
     } catch (err) {
       console.error(err);
+      const caughtError: Error = err;
+      notify(caughtError.message, 'error');
     }
   };
 

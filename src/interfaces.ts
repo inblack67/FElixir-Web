@@ -21,3 +21,9 @@ export interface IGetMeResponse {
   success: boolean;
   data: ICurrentUser;
 }
+
+export interface IAcknowledgementResponse {
+  success: boolean;
+  message: string;
+  errors?: string[];
+}
