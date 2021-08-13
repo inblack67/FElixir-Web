@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { toast, TypeOptions } from 'react-toastify';
+import { mutate } from 'swr';
 
-import Layout from '../components/Layout';
 import { requiredValidationMessage } from '../src/constants';
 import { IAcknowledgementResponse, ILogin } from '../src/interfaces';
 import { routes } from '../src/routes';
@@ -52,9 +52,10 @@ const Login = () => {
       console.log('handle login data = ', resData);
 
       if (resData.success) {
-        notify(resData.message, 'success');
-      } else {
-        notify(resData.message, 'error');
+        notify(resData.message, 'info');
+        mutate(routes.getMe);
+      } else if (resData.errors) {
+        notify(resData.errors.toString(), 'error');
       }
     } catch (err) {
       console.error(err);

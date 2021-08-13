@@ -63,7 +63,7 @@ const Register = () => {
       console.log('handleRegister data = ', resData);
 
       if (resData.success) {
-        notify(resData.message, 'success');
+        notify(resData.message, 'info');
       } else if (resData.errors) {
         notify(resData.errors.toString(), 'error');
       }
