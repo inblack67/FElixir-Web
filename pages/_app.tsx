@@ -1,6 +1,8 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import { Fragment, useEffect } from 'react';
 import Layout from '../components/Layout';
+import { RecoilRoot } from 'recoil';
+
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.css';
 
@@ -12,9 +14,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Fragment>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <RecoilRoot>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </RecoilRoot>
     </Fragment>
   );
 }
