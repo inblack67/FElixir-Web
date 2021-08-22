@@ -11,7 +11,8 @@ const Layout = ({ children }) => {
         value={{
           fetcher,
           revalidateOnFocus: true,
-          dedupingInterval: 1000 * 60 * 60 * 60, // 1 hour,
+          dedupingInterval: 1000 * 5, // 5 seconds,
+          // dedupingInterval: 1000 * 60 * 60 * 60, // 1 hour,
           shouldRetryOnError: false,
         }}
       >

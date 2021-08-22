@@ -68,7 +68,7 @@ const Login = () => {
 
       if (resData.success) {
         notify(resData.message, 'info');
-        mutate(routes.getMe);
+        await mutate(routes.getMe);
         router.push('/dashboard');
       } else if (resData.errors) {
         notify(resData.errors.toString(), 'error');

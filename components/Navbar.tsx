@@ -22,12 +22,12 @@ const Navbar = () => {
   const [getMe, setGetMe] = useRecoilState<ICurrentUser | null>(getMeAtom);
 
   useEffect(() => {
-    if (data && data.success) {
+    if (!isValidating && data && data.success) {
       setGetMe(data.data);
     } else {
       setGetMe(null);
     }
-  }, [data]);
+  }, [data, isValidating]);
 
   useEffect(() => {
     if (error) {
@@ -55,7 +55,7 @@ const Navbar = () => {
 
       if (resData.success) {
         notify(resData.message, 'info');
-        mutate(routes.getMe);
+        await mutate(routes.getMe);
         router.push('/login');
       } else if (resData.errors) {
         notify(resData.errors.toString(), 'error');
