@@ -10,8 +10,11 @@ import {
 import { useRecoilState } from 'recoil';
 import { getMeAtom } from '../src/recoil';
 import { toast, TypeOptions } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
+  const router = useRouter();
+
   const { isValidating, data, error } = useSWR<IGetMeResponse, Error>(
     routes.getMe,
   );
@@ -53,6 +56,7 @@ const Navbar = () => {
       if (resData.success) {
         notify(resData.message, 'info');
         mutate(routes.getMe);
+        router.push('/login');
       } else if (resData.errors) {
         notify(resData.errors.toString(), 'error');
       }

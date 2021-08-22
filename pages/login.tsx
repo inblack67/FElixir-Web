@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -8,8 +8,13 @@ import { mutate } from 'swr';
 import { requiredValidationMessage } from '../src/constants';
 import { IAcknowledgementResponse, ILogin } from '../src/interfaces';
 import { routes } from '../src/routes';
+import { useRouter } from 'next/router';
+import { useRecoilValue } from 'recoil';
+import { getMeAtom } from '../src/recoil';
 
 const Login = () => {
+  const router = useRouter();
+
   const validationSchema = useMemo(
     () =>
       yup.object({
@@ -22,6 +27,16 @@ const Login = () => {
       }),
     [],
   );
+
+  const getMe = useRecoilValue(getMeAtom);
+
+  console.log('getMe = ', getMe);
+
+  useEffect(() => {
+    if (getMe) {
+      router.replace('/dashboard');
+    }
+  }, [getMe]);
 
   const notify = (text: string, type: TypeOptions) =>
     toast(text, {
@@ -54,6 +69,7 @@ const Login = () => {
       if (resData.success) {
         notify(resData.message, 'info');
         mutate(routes.getMe);
+        router.push('/dashboard');
       } else if (resData.errors) {
         notify(resData.errors.toString(), 'error');
       }
