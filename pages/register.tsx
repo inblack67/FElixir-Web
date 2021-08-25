@@ -164,7 +164,10 @@ const Register = () => {
             )}
           </div>
           <div className='input-field col s6'>
-            <button className='btn grey waves-effect waves-light' type='submit'>
+            <button
+              className='btn grey darken-3 waves-effect waves-light'
+              type='submit'
+            >
               Submit
             </button>
           </div>

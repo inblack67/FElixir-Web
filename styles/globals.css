@@ -1,9 +1,13 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: #111827;
+  color: #9ca3af;
 }
 
 input,
 label {
-  color: white;
+  color: #9ca3af;
+}
+
+.navbar {
+  background-color: #111827;
 }

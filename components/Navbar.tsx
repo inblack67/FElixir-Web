@@ -97,7 +97,7 @@ const Navbar = () => {
 
   return (
     <Fragment>
-      <nav className='blue darken-4'>
+      <nav className='navbar'>
         <div className='nav-wrapper'>
           <div className='container'>
             <Link href='/'>
